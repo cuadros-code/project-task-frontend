@@ -11,7 +11,8 @@ export const AuthState = (props) => {
         token: localStorage.getItem('token'),
         authenticated: undefined,
         user: null,
-        msg: null
+        msg: null,
+        loading: false
     }
 
     const [state, dispatch] = useReducer(authReducer, initialState)
@@ -64,6 +65,10 @@ export const AuthState = (props) => {
     const loginUser = async ( dataUser ) => {
 
         try {
+
+            dispatch({
+                type: types.loginLoading
+            })
 
             const res = await clientAxios.post('/api/auth', dataUser)
             dispatch({

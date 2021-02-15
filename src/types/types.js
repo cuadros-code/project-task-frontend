@@ -26,6 +26,7 @@ export const types = {
     registerError: '[auth] Register error',
     getUser: '[auth] Get user',
     loginSuccess: '[auth] Login success',
+    loginLoading: '[auth] Login loading',
     loginError: '[auth] Login error',
     closeSession: '[auth] Close session'
 

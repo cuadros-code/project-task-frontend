@@ -19,13 +19,20 @@ export const authReducer = (state, action) => {
                 token: null,
                 msg: action.payload
             }
+        
+        case types.loginLoading:
+            return {
+            ...state,
+            loading : true
+            }
 
         case types.loginSuccess:
             localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
                 msg: null,
-                authenticated: true
+                authenticated: true,
+                loading : false
             }
 
         case types.getUser:

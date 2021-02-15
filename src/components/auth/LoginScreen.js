@@ -5,7 +5,7 @@ import { authContext } from '../../context/auth/authContext';
 
 export const LoginScreen = () => {
 
-    const {  state: { authenticated, msg }, loginUser } = useContext(authContext)
+    const {  state: { authenticated, msg, loading }, loginUser } = useContext(authContext)
     const { state: { alert }, showAlert, closeAlert} = useContext(alertContext)
 
     const history = useHistory()
@@ -42,7 +42,7 @@ export const LoginScreen = () => {
             password.trim() === '') {
             return showAlert('All inputs is required', 'alerta-error')
         }
-
+        
         loginUser({ email, password })
 
     };
@@ -88,6 +88,7 @@ export const LoginScreen = () => {
                     </div>
                     <button
                         type="submit"
+                        disabled={ loading }
                         className="btn-btn btn-primario btn-block btn-submit"
                     >
                         Login

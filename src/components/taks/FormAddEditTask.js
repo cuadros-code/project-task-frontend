@@ -55,7 +55,7 @@ export const FormAddEditTask = () => {
             <form
                 onSubmit={handleAddNewTask}
             >
-                <div className="contenedor-input">
+                <div className="contenedor-input input-task">
                     <input
                         type="text"
                         className="input-text"
